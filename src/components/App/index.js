@@ -3,7 +3,7 @@ import { PrivateRoute } from '../PrivateRoute';
 import { Signup } from '../Signup';
 import { Login } from '../Login';
 import { Dashboard } from '../Dashboard';
-import { getUser } from '../../storage';
+import '../../services';
 import './index.css';
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
           <Route
             path="dashboard"
             element={
-              <PrivateRoute user={getUser()}>
+              <PrivateRoute>
                 <Dashboard />
               </PrivateRoute>
             }

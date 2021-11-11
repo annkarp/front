@@ -1,3 +1,19 @@
 .Dashboard {
-  margin: auto;
+  width: 100vw;
+}
+
+.Dashboard-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0 0 0;
+}
+
+.Dashboard-title {
+  margin-top: 20px;
+}
+
+.Dashboard-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
 }
