@@ -1,7 +1,9 @@
 import FetchInterceptor from 'fetch-interceptor';
+import { getUser } from '../storage'
 
-export const interceptor = (token) => FetchInterceptor.register({
+FetchInterceptor.register({
   onBeforeRequest(request, controller) {
-    request.headers.set('Authorization', `Bearer ${token}`)
+    const user = getUser();
+    user && request.headers.set('Authorization', `Bearer ${user.token}`)
   },
 });

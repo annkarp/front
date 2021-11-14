@@ -1,11 +1,11 @@
 import React from 'react';
-import { Navigate, useLocation } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
+import { getUser } from '../../storage';
 
-export function PrivateRoute({ children, user }) {
-  const location = useLocation();
+export function PrivateRoute({ children }) {
   return (
-    user
+    getUser()
         ? children
-        : <Navigate to='login' state={{ from: location }} />
+        : <Navigate to='/login' />
   )
 }

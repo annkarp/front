@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Button, Form } from 'react-bootstrap';
+import { Button, Form, Nav } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { signup } from '../../services/auth';
 import './index.css';
@@ -34,6 +34,7 @@ export function Signup() {
         <Button variant="primary" type="submit" onClick={handleSubmit}>
           Sign up
         </Button>
+        <Nav.Link href="/login">Login</Nav.Link>
       </Form>
     </div>
   );

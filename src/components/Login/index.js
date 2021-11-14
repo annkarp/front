@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { Button, Form } from 'react-bootstrap';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Button, Form, Nav } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 import { login } from '../../services/auth';
 import './index.css';
 
@@ -8,15 +8,11 @@ export function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
-  let location = useLocation();
-
-  console.log(location.state?.from?.pathname)
-  console.log(location)
 
   const handleSubmit = (e) => {
     e.preventDefault();
     login({ email, password })
-      .then(() => navigate('/dashboard'))
+      .then(() => navigate('/dashboard'));
   }
 
   return (
@@ -33,6 +29,7 @@ export function Login() {
         <Button variant="primary" type="submit" onClick={handleSubmit}>
           Log in
         </Button>
+        <Nav.Link href="/signup">Sign up</Nav.Link>
       </Form>
     </div>
   );
