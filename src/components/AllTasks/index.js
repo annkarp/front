@@ -43,6 +43,9 @@ export function AllTasks() {
               </Card.Header>
               <Card.Body>
                 <Card.Text>
+                  {task.jira_id}
+                </Card.Text>
+                <Card.Text>
                   {task.description}
                 </Card.Text>
               </Card.Body>
