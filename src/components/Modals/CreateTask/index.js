@@ -8,6 +8,7 @@ export function CreateTask({show, handleClose, setTasks}) {
   const [workers, setWorkers] = useState([]);
   const [assignee, setAssignee] = useState('');
   const [assigneeName, setAssigneeName] = useState('');
+  const [jiraId, setJiraId] = useState('');
 
   useEffect(() => {
     getAllUsers({ role: 'worker' })
@@ -20,7 +21,7 @@ export function CreateTask({show, handleClose, setTasks}) {
   }
 
   const handleSubmit = () => {
-    createTask({ description, id: assignee })
+    createTask({ description, id: assignee, jiraId })
       .then(() => getAllTasks()
         .then((data) => {
           !data.errors && setTasks(data)
@@ -36,6 +37,14 @@ export function CreateTask({show, handleClose, setTasks}) {
       </Modal.Header>
       <Modal.Body>
         <Form>
+          <Form.Group className="mb-3" controlId="jiraId">
+            <Form.Label>Description</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Enter jira id"
+              onChange={({target: {value}}) => setJiraId(value)}
+            />
+          </Form.Group>
           <Form.Group className="mb-3" controlId="description">
             <Form.Label>Description</Form.Label>
             <Form.Control
